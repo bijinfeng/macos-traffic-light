@@ -12,6 +12,9 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "paths": {
+      "@traffic-light/vue": ["../../packages/vue/src/index.ts"]
+    },
 
     /* Linting */
     "noUnusedLocals": true,

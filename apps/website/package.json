@@ -5,12 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "tsc && vp build",
+    "build": "vue-tsc --noEmit && vp build",
     "preview": "vp preview"
   },
+  "dependencies": {
+    "@traffic-light/vue": "workspace:*",
+    "vue": "^3.5.0"
+  },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
     "typescript": "~6.0.2",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "vue-tsc": "^3.0.8"
   }
 }
