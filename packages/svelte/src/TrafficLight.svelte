@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IconState } from "@macos-traffic-light/svg";
+  import type { IconState } from "@traffic-light/svg";
   import CloseIcon from "./icons/CloseIcon.svelte";
   import MaximizeIcon from "./icons/MaximizeIcon.svelte";
   import MinimizeIcon from "./icons/MinimizeIcon.svelte";

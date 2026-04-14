@@ -1,5 +1,5 @@
 {
-  "name": "@macos-traffic-light/svg",
+  "name": "@traffic-light/svg",
   "version": "0.0.0",
   "description": "Structured icon data for macos-traffic-light.",
   "files": [

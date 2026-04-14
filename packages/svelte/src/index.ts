@@ -10,4 +10,4 @@ export type {
   IconNode,
   IconState,
   IconVariants,
-} from "@macos-traffic-light/svg";
+} from "@traffic-light/svg";

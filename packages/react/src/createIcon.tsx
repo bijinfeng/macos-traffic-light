@@ -1,4 +1,4 @@
-import type { IconDefinition, IconNode, IconState } from "@macos-traffic-light/svg";
+import type { IconDefinition, IconNode, IconState } from "@traffic-light/svg";
 import { createElement, useState } from "react";
 import type { CSSProperties, MouseEventHandler, ReactNode, SVGProps } from "react";
 

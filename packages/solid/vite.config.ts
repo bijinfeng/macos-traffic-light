@@ -10,7 +10,7 @@ export default defineConfig({
       fileName: () => "index.mjs",
     },
     rollupOptions: {
-      external: ["@macos-traffic-light/svg", "solid-js", "solid-js/web"],
+      external: ["@traffic-light/svg", "solid-js", "solid-js/web"],
     },
   },
   lint: {

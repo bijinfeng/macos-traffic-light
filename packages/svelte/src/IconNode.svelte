@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IconNode as IconNodeType } from "@macos-traffic-light/svg";
+  import type { IconNode as IconNodeType } from "@traffic-light/svg";
 
   export let node: IconNodeType;
 </script>

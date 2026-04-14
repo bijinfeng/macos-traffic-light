@@ -1,4 +1,4 @@
-import { closeIcon, maximizeIcon, minimizeIcon } from "@macos-traffic-light/svg";
+import { closeIcon, maximizeIcon, minimizeIcon } from "@traffic-light/svg";
 import { createSvgIcon } from "./createIcon.ts";
 
 export const CloseIcon = createSvgIcon(closeIcon);

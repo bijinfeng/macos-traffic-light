@@ -1,4 +1,4 @@
-import type { IconState } from "@macos-traffic-light/svg";
+import type { IconState } from "@traffic-light/svg";
 import { defineComponent, h, ref } from "vue";
 import type { Component, SetupContext, VNodeChild } from "vue";
 import { CloseIcon, MaximizeIcon, MinimizeIcon } from "./icons.ts";

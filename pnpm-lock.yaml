@@ -100,7 +100,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@macos-traffic-light/svg':
+      '@traffic-light/svg':
         specifier: workspace:*
         version: link:../svg
     devDependencies:
@@ -134,7 +134,7 @@ importers:
 
   packages/solid:
     dependencies:
-      '@macos-traffic-light/svg':
+      '@traffic-light/svg':
         specifier: workspace:*
         version: link:../svg
     devDependencies:
@@ -162,7 +162,7 @@ importers:
 
   packages/svelte:
     dependencies:
-      '@macos-traffic-light/svg':
+      '@traffic-light/svg':
         specifier: workspace:*
         version: link:../svg
     devDependencies:
@@ -208,7 +208,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@macos-traffic-light/svg':
+      '@traffic-light/svg':
         specifier: workspace:*
         version: link:../svg
     devDependencies:
@@ -233,7 +233,7 @@ importers:
 
   packages/web-component:
     dependencies:
-      '@macos-traffic-light/svg':
+      '@traffic-light/svg':
         specifier: workspace:*
         version: link:../svg
     devDependencies:

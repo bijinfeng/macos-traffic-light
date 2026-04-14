@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IconDefinition, IconState } from "@macos-traffic-light/svg";
+  import type { IconDefinition, IconState } from "@traffic-light/svg";
   import IconNode from "./IconNode.svelte";
 
   export let icon: IconDefinition = undefined as unknown as IconDefinition;

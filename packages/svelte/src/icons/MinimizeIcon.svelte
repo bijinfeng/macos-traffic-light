@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { minimizeIcon } from "@macos-traffic-light/svg";
+  import { minimizeIcon } from "@traffic-light/svg";
   import Icon from "../Icon.svelte";
-  import type { IconState } from "@macos-traffic-light/svg";
+  import type { IconState } from "@traffic-light/svg";
 
   export let state: IconState = "default";
   export let color: string | undefined = undefined;

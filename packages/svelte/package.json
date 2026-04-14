@@ -28,7 +28,7 @@
     "prepublishOnly": "vp run build"
   },
   "dependencies": {
-    "@macos-traffic-light/svg": "workspace:*"
+    "@traffic-light/svg": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^6.0.0",

@@ -1,4 +1,4 @@
-import type { IconDefinition, IconNode, IconState } from "@macos-traffic-light/svg";
+import type { IconDefinition, IconNode, IconState } from "@traffic-light/svg";
 import { computed, defineComponent, h, ref } from "vue";
 import type { CSSProperties, PropType, SetupContext, StyleValue, VNode, VNodeChild } from "vue";
 

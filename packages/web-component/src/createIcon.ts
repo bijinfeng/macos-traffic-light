@@ -1,4 +1,4 @@
-import type { IconAttrs, IconDefinition, IconNode, IconState } from "@macos-traffic-light/svg";
+import type { IconAttrs, IconDefinition, IconNode, IconState } from "@traffic-light/svg";
 
 export type SvgIconProps = {
   state?: IconState;

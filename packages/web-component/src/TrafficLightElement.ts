@@ -1,4 +1,4 @@
-import type { IconState } from "@macos-traffic-light/svg";
+import type { IconState } from "@traffic-light/svg";
 import { CloseIcon, MaximizeIcon, MinimizeIcon } from "./icons.ts";
 
 export const macosTrafficLightTagName = "macos-traffic-light";

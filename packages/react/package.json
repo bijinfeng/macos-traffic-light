@@ -22,7 +22,7 @@
     "prepublishOnly": "vp run build"
   },
   "dependencies": {
-    "@macos-traffic-light/svg": "workspace:*"
+    "@traffic-light/svg": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",

@@ -1,4 +1,4 @@
-import type { IconDefinition, IconNode, IconState } from "@macos-traffic-light/svg";
+import type { IconDefinition, IconNode, IconState } from "@traffic-light/svg";
 import { createSignal, mergeProps, splitProps } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import type { JSX } from "solid-js";

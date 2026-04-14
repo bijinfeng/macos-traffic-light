@@ -5,7 +5,7 @@
 ## 包与目录
 
 - `packages/svg`：结构化 SVG 图标数据（颜色 + 节点树 + hover/active 变体）
-  - 包名：`@macos-traffic-light/svg`
+  - 包名：`@traffic-light/svg`
 - `packages/vue`：Vue 组件
   - 包名：`@traffic-light/vue`
 - `packages/react`：React 组件

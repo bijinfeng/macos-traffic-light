@@ -1,5 +1,5 @@
 import { expect, test } from "vite-plus/test";
-import { closeIcon } from "@macos-traffic-light/svg";
+import { closeIcon } from "@traffic-light/svg";
 import { createVueIcon } from "../src/createIcon.ts";
 import { TrafficLight } from "../src/TrafficLight.ts";
 
