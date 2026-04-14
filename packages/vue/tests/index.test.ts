@@ -17,16 +17,47 @@ test("createVueIcon uses icon.colors defaults", () => {
 
 test("TrafficLight renders enabled buttons", () => {
   const render = (TrafficLight as unknown as { setup: unknown }).setup as (
-    props: { close: boolean; minimize: boolean; maximize: boolean; isMaximized: boolean },
+    props: {
+      close: boolean;
+      minimize: boolean;
+      maximize: boolean;
+      disabled?: boolean;
+      size?: number;
+      gap?: number;
+    },
     ctx: { emit: unknown },
   ) => () => { type: unknown; children?: unknown };
 
-  const vnode = render(
-    { close: true, minimize: true, maximize: true, isMaximized: false },
-    { emit: () => {} },
-  )();
+  const vnode = render({ close: true, minimize: true, maximize: true }, { emit: () => {} })();
 
   expect(vnode.type).toBe("div");
   expect(Array.isArray(vnode.children)).toBe(true);
   expect((vnode.children as unknown[]).length).toBe(3);
+});
+
+test("TrafficLight supports disabled", () => {
+  const render = (TrafficLight as unknown as { setup: unknown }).setup as (
+    props: {
+      close: boolean;
+      minimize: boolean;
+      maximize: boolean;
+      disabled?: boolean;
+      size?: number;
+      gap?: number;
+    },
+    ctx: { emit: unknown },
+  ) => () => { type: unknown; children?: unknown };
+
+  const vnode = render(
+    {
+      close: true,
+      minimize: true,
+      maximize: true,
+      disabled: true,
+    },
+    { emit: () => {} },
+  )();
+
+  const children = vnode.children as unknown as Array<{ props?: Record<string, unknown> }>;
+  expect(children[0]?.props?.disabled).toBe(true);
 });

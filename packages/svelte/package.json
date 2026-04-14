@@ -1,22 +1,28 @@
 {
-  "name": "@traffic-light/vue",
+  "name": "@traffic-light/svelte",
   "version": "0.0.0",
-  "description": "Vue components for macos-traffic-light.",
+  "description": "Svelte support for macos-traffic-light.",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "type": "module",
-  "types": "./dist/index.d.mts",
+  "types": "./src/index.ts",
+  "svelte": "./src/index.ts",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./src/index.ts",
+      "svelte": "./src/index.ts",
+      "default": "./dist/index.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "vp pack",
-    "dev": "vp pack --watch",
+    "build": "vp build",
+    "dev": "vp build --watch",
     "test": "vp test",
     "check": "vp check",
     "prepublishOnly": "vp run build"
@@ -25,14 +31,15 @@
     "@macos-traffic-light/svg": "workspace:*"
   },
   "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
     "@types/node": "^25.5.0",
     "@typescript/native-preview": "7.0.0-dev.20260328.1",
     "bumpp": "^11.0.1",
+    "svelte": "^5.0.0",
     "typescript": "^6.0.2",
-    "vite-plus": "^0.1.14",
-    "vue": "^3.5.0"
+    "vite-plus": "^0.1.14"
   },
   "peerDependencies": {
-    "vue": "^3.5.0"
+    "svelte": "^4.0.0 || ^5.0.0"
   }
 }

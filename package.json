@@ -9,6 +9,8 @@
     "prepare": "vp config"
   },
   "devDependencies": {
+    "jsdom": "catalog:",
+    "vite-plugin-solid": "catalog:",
     "vite-plus": "catalog:"
   },
   "engines": {

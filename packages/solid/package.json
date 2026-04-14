@@ -1,22 +1,25 @@
 {
-  "name": "@traffic-light/vue",
+  "name": "@traffic-light/solid",
   "version": "0.0.0",
-  "description": "Vue components for macos-traffic-light.",
+  "description": "Solid components for macos-traffic-light.",
   "files": [
     "dist"
   ],
   "type": "module",
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "vp pack",
-    "dev": "vp pack --watch",
+    "build": "vp build && vp exec tsc -p tsconfig.build.json",
+    "dev": "vp build --watch",
     "test": "vp test",
     "check": "vp check",
     "prepublishOnly": "vp run build"
@@ -28,11 +31,12 @@
     "@types/node": "^25.5.0",
     "@typescript/native-preview": "7.0.0-dev.20260328.1",
     "bumpp": "^11.0.1",
+    "solid-js": "^1.9.0",
+    "solid-testing-library": "^0.5.1",
     "typescript": "^6.0.2",
-    "vite-plus": "^0.1.14",
-    "vue": "^3.5.0"
+    "vite-plus": "^0.1.14"
   },
   "peerDependencies": {
-    "vue": "^3.5.0"
+    "solid-js": "^1.0.0"
   }
 }

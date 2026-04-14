@@ -4,6 +4,7 @@ import type { Component, SetupContext, VNodeChild } from "vue";
 import { CloseIcon, MaximizeIcon, MinimizeIcon } from "./icons.ts";
 
 type TrafficLightState = IconState;
+type TrafficLightButton = "close" | "minimize" | "maximize";
 
 function useButtonState() {
   const state = ref<TrafficLightState>("default");
@@ -53,9 +54,17 @@ export const TrafficLight = defineComponent({
       type: Boolean,
       default: true,
     },
-    isMaximized: {
+    disabled: {
       type: Boolean,
       default: false,
+    },
+    size: {
+      type: Number,
+      default: 12,
+    },
+    gap: {
+      type: Number,
+      default: 8,
     },
   },
   emits: {
@@ -68,83 +77,72 @@ export const TrafficLight = defineComponent({
       close: boolean;
       minimize: boolean;
       maximize: boolean;
-      isMaximized: boolean;
+      disabled: boolean;
+      size: number;
+      gap: number;
     },
     { emit }: SetupContext,
   ) {
-    const emitTrafficLight = emit as (event: "close" | "minimize" | "maximize") => void;
+    const emitTrafficLight = emit as (event: TrafficLightButton) => void;
     const closeBtn = useButtonState();
     const minimizeBtn = useButtonState();
     const maximizeBtn = useButtonState();
 
-    const containerStyle = {
-      display: "flex",
-      "align-items": "center",
-      gap: "8px",
-    } as const;
-
-    const buttonStyle = {
-      width: "12px",
-      height: "12px",
-      "border-radius": "9999px",
-      border: "none",
-      padding: 0,
-      cursor: "pointer",
-      display: "flex",
-      "align-items": "center",
-      "justify-content": "center",
-      background: "transparent",
-      "flex-shrink": 0,
-    } as const;
-
     function renderButton(
-      kind: "close" | "minimize" | "maximize",
-      title: string,
+      kind: TrafficLightButton,
       icon: Component,
       state: TrafficLightState,
       handlers: ReturnType<typeof useButtonState>,
     ) {
+      const disabled = props.disabled;
       return h(
         "button",
         {
           type: "button",
           class: ["mac-btn", `mac-btn--${kind}`],
-          title,
-          style: buttonStyle,
-          onClick: () => emitTrafficLight(kind),
-          onMouseenter: handlers.onMouseEnter,
-          onMouseleave: handlers.onMouseLeave,
-          onMousedown: handlers.onMouseDown,
-          onMouseup: handlers.onMouseUp,
-          onBlur: handlers.onBlur,
+          style: {
+            border: "none",
+            padding: 0,
+            background: "transparent",
+            cursor: disabled ? "default" : "pointer",
+            display: "inline-flex",
+            "align-items": "center",
+            "justify-content": "center",
+            opacity: disabled ? 0.45 : 1,
+          } as const,
+          disabled,
+          "aria-disabled": disabled ? "true" : undefined,
+          onClick: () => {
+            if (!disabled) emitTrafficLight(kind);
+          },
+          onMouseenter: disabled ? undefined : handlers.onMouseEnter,
+          onMouseleave: disabled ? undefined : handlers.onMouseLeave,
+          onMousedown: disabled ? undefined : handlers.onMouseDown,
+          onMouseup: disabled ? undefined : handlers.onMouseUp,
+          onBlur: disabled ? undefined : handlers.onBlur,
         },
-        [h(icon, { state })],
+        [h(icon, { state: disabled ? "default" : state, width: props.size, height: props.size })],
       );
     }
 
     return () => {
       const children: VNodeChild[] = [];
+      const containerStyle = {
+        display: "flex",
+        "align-items": "center",
+        gap: `${props.gap}px`,
+      } as const;
 
       if (props.close) {
-        children.push(renderButton("close", "关闭", CloseIcon, closeBtn.state.value, closeBtn));
+        children.push(renderButton("close", CloseIcon, closeBtn.state.value, closeBtn));
       }
 
       if (props.minimize) {
-        children.push(
-          renderButton("minimize", "最小化", MinimizeIcon, minimizeBtn.state.value, minimizeBtn),
-        );
+        children.push(renderButton("minimize", MinimizeIcon, minimizeBtn.state.value, minimizeBtn));
       }
 
       if (props.maximize) {
-        children.push(
-          renderButton(
-            "maximize",
-            props.isMaximized ? "还原" : "最大化",
-            MaximizeIcon,
-            maximizeBtn.state.value,
-            maximizeBtn,
-          ),
-        );
+        children.push(renderButton("maximize", MaximizeIcon, maximizeBtn.state.value, maximizeBtn));
       }
 
       return h("div", { class: "mac-traffic-light", style: containerStyle }, children);

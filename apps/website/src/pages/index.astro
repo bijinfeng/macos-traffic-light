@@ -1,0 +1,192 @@
+---
+import "../style.css";
+import ReactTrafficLight from "../ui/ReactTrafficLight.tsx";
+import SolidTrafficLight from "../ui/SolidTrafficLight.jsx";
+import SvelteTrafficLight from "../ui/SvelteTrafficLight.svelte";
+import VueTrafficLight from "../ui/VueTrafficLight.vue";
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>macos-traffic-light</title>
+</head>
+
+<main class="page">
+  <header class="hero hero--new">
+    <div class="hero-top">
+      <h1 class="hero-title">macOS Traffic Light</h1>
+    </div>
+    <p class="hero-subtitle">
+      基于同一套结构化 SVG 数据，同时输出到五种框架/形态。切换标签实时渲染对应实现，并展示对应用法与 props。
+    </p>
+
+    <nav class="tabs" role="tablist" aria-label="Frameworks">
+      <button class="tab tab--active" type="button" role="tab" aria-selected="true" data-framework="vue">
+        Vue
+      </button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-framework="react">React</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-framework="solid">Solid</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-framework="svelte">Svelte</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-framework="web-component">
+        Web Component
+      </button>
+    </nav>
+  </header>
+
+  <section class="layout">
+    <div class="stack">
+      <div class="card">
+        <div class="card-title">Preview</div>
+        <div class="window">
+          <div class="titlebar">
+            <div class="preview-host">
+              <div class="preview-item" data-preview="vue">
+                <VueTrafficLight client:only="vue" />
+              </div>
+              <div class="preview-item" data-preview="react" hidden>
+                <ReactTrafficLight client:only="react" />
+              </div>
+              <div class="preview-item" data-preview="solid" hidden>
+                <SolidTrafficLight client:only="solid-js" />
+              </div>
+              <div class="preview-item" data-preview="svelte" hidden>
+                <SvelteTrafficLight client:load />
+              </div>
+              <div class="preview-item" data-preview="web-component" hidden>
+                <macos-traffic-light id="wc-preview"></macos-traffic-light>
+              </div>
+            </div>
+            <div class="window-title" id="preview-title">Vue / TrafficLight</div>
+          </div>
+          <div class="window-content">
+            <p class="hint">把鼠标移到按钮上查看 hover，按下查看 active。</p>
+          </div>
+        </div>
+
+        <div class="divider" />
+
+        <div class="log">
+          <div class="log-title">Events</div>
+          <div class="log-empty" id="events-empty">点击按钮查看事件记录。</div>
+          <ul class="log-list" id="events-list" hidden></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Usage</div>
+        <pre class="code"><code id="usage-code"></code></pre>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="card">
+        <div class="card-title">Controls</div>
+        <div class="controls">
+          <label class="switch">
+            <input id="ctl-close" type="checkbox" checked />
+            <span class="track"></span>
+            <span class="label">close</span>
+          </label>
+
+          <label class="switch">
+            <input id="ctl-minimize" type="checkbox" checked />
+            <span class="track"></span>
+            <span class="label">minimize</span>
+          </label>
+
+          <label class="switch">
+            <input id="ctl-maximize" type="checkbox" checked />
+            <span class="track"></span>
+            <span class="label">maximize</span>
+          </label>
+
+          <label class="switch">
+            <input id="ctl-disabled" type="checkbox" />
+            <span class="track"></span>
+            <span class="label">disabled</span>
+          </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="controls" style="grid-template-columns: 1fr">
+          <label class="range">
+            <div class="range-header">
+              <span class="label">size</span>
+              <span class="value"><span id="ctl-size-value">12</span>px</span>
+            </div>
+            <input id="ctl-size" type="range" min="8" max="24" step="1" value="12" />
+          </label>
+
+          <label class="range">
+            <div class="range-header">
+              <span class="label">gap</span>
+              <span class="value"><span id="ctl-gap-value">8</span>px</span>
+            </div>
+            <input id="ctl-gap" type="range" min="0" max="24" step="1" value="8" />
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Props</div>
+        <div class="props">
+          <table class="props-table">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>close</code></td>
+                <td><code>boolean</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>minimize</code></td>
+                <td><code>boolean</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>maximize</code></td>
+                <td><code>boolean</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>disabled</code></td>
+                <td><code>boolean</code></td>
+                <td><code>false</code></td>
+              </tr>
+              <tr>
+                <td><code>size</code></td>
+                <td><code>number</code></td>
+                <td><code>12</code></td>
+              </tr>
+              <tr>
+                <td><code>gap</code></td>
+                <td><code>number</code></td>
+                <td><code>8</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="props-foot">
+            <div class="props-note" id="events-hint"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  import { setupTrafficLightDemo } from "../scripts/demo";
+
+  if (typeof window !== "undefined") {
+    setupTrafficLightDemo();
+  }
+</script>
