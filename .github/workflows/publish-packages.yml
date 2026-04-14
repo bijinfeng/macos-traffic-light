@@ -35,13 +35,13 @@ jobs:
         run: pnpm vp run svg#build
 
       - name: Check
-        run: pnpm vp run -r check
+        run: pnpm -r --filter "./packages/**" run check
 
       - name: Test
-        run: pnpm vp run -r test
+        run: pnpm -r --filter "./packages/**" run test
 
       - name: Build
-        run: pnpm vp run -r build
+        run: pnpm -r --filter "./packages/**" run build
 
       - name: Publish
         env:
