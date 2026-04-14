@@ -3,15 +3,11 @@ import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [solidPlugin()],
-  build: {
-    lib: {
-      entry: "src/index.ts",
-      formats: ["es"],
-      fileName: () => "index.mjs",
+  pack: {
+    dts: {
+      tsgo: true,
     },
-    rollupOptions: {
-      external: ["@traffic-light/svg", "solid-js", "solid-js/web"],
-    },
+    exports: true,
   },
   lint: {
     options: {
