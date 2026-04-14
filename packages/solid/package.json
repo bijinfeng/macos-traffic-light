@@ -18,8 +18,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vp build && vp exec tsc -p tsconfig.build.json",
-    "dev": "vp build --watch",
+    "build": "vp pack --from-vite && vp exec tsc -p tsconfig.build.json",
+    "dev": "vp pack --from-vite --watch",
     "test": "vp test",
     "check": "vp check",
     "prepublishOnly": "vp run build"

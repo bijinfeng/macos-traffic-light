@@ -6,15 +6,15 @@ export default defineConfig({
   resolve: {
     conditions: ["browser", "development", "svelte", "import"],
   },
-  build: {
-    lib: {
-      entry: "src/index.ts",
-      formats: ["es"],
-      fileName: () => "index.mjs",
+  pack: {
+    dts: {
+      tsgo: true,
     },
-    rollupOptions: {
-      external: ["@macos-traffic-light/svg", "svelte"],
-    },
+    external: [/\.svelte(\?|$)/],
+    copy: [
+      { from: "src/*.svelte", to: "dist", flatten: true },
+      { from: "src/icons/*.svelte", to: "dist/icons", flatten: true },
+    ],
   },
   lint: {
     options: {
