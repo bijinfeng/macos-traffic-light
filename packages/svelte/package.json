@@ -1,6 +1,6 @@
 {
   "name": "@traffic-light/svelte",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Svelte support for macos-traffic-light.",
   "files": [
     "dist",

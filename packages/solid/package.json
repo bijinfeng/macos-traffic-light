@@ -1,6 +1,6 @@
 {
   "name": "@traffic-light/solid",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Solid components for macos-traffic-light.",
   "files": [
     "dist"

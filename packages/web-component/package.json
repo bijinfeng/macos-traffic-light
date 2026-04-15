@@ -1,6 +1,6 @@
 {
   "name": "@traffic-light/web-component",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Web Components for macos-traffic-light.",
   "files": [
     "dist",
